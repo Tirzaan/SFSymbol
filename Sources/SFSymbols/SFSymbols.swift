@@ -1,15 +1,31 @@
 import Foundation
+import SwiftUI
+
+public struct SFSymbol: Sendable {
+    public let rawValue: String
+ 
+    public init(_ rawValue: String) {
+        self.rawValue = rawValue
+    }
+}
+ 
+public extension Image {
+    /// Create an Image from an SFSymbol constant.
+    /// Example: Image(sf: .heartFill)
+    init(sf symbol: SFSymbol) {
+        self.init(systemName: symbol.rawValue)
+    }
+}
 
 /// The SFSymbol struct is a lightweight Swift model representing a single Apple SF Symbol. It stores the symbol's name as a String, allowing type-safe access in SwiftUI or UIKit.
 ///
 /// This Struct gives you an easy way to get all the SF Symbols
 /// ```
-/// Image(systemImage: SFSymbol.heart.fill)
-/// ```
-public struct SFSymbol {
-    private init() {}
+/// Image(systemImage: SFSymbol.heartFill)
+/// ``'
+public struct SFSymbols {
     // Eraser Symbols
-    public static let eraserBadgeXmark = "eraser.badge.xmark"
+    public static let eraserBadgeXmark ="eraser.badge.xmark"
     public static let eraserBadgeXmarkFill = "eraser.badge.xmark.fill"
     public static let eraserTriangleBadgeExclamationmark = "eraser.trianglebadge.exclamationmark"
     public static let eraserTriangleBadgeExclamationmarkFill = "eraser.trianglebadge.exclamationmark.fill"
@@ -519,7 +535,7 @@ public struct SFSymbol {
 }
 
 @available(iOS 18.5, *) 
-extension SFSymbol {
+extension SFSymbols {
     // Apple Intelligence / Beats
     public static let appleIntelligenceBadgeXmark = "apple.intelligence.badge.xmark"
     
@@ -532,7 +548,7 @@ extension SFSymbol {
 }
 
 @available(iOS 18.4, *)
-extension SFSymbol {
+extension SFSymbols {
     // Square / Long Text / Info
     public static let squareAndArrowUpBadgeCheckmark = "square.and.arrow.up.badge.checkmark"
     public static let squareAndArrowUpBadgeCheckmarkFill = "square.and.arrow.up.badge.checkmark.fill"
@@ -653,7 +669,7 @@ extension SFSymbol {
 }
 
 @available(iOS 18.2, *)
-extension SFSymbol {
+extension SFSymbols {
     // Receipts / Text Page
     public static let receipt = "receipt"
     public static let receiptFill = "receipt.fill"
@@ -685,7 +701,7 @@ extension SFSymbol {
 }
 
 @available(iOS 18.1, *)
-extension SFSymbol {
+extension SFSymbols {
     // Square / Arrow Down
     public static let squareAndArrowDownBadgeCheckmark = "square.and.arrow.down.badge.checkmark"
     public static let squareAndArrowDownBadgeCheckmarkFill = "square.and.arrow.down.badge.checkmark.fill"
@@ -752,7 +768,7 @@ extension SFSymbol {
 }
 
 @available(iOS 18.0, *)
-extension SFSymbol {
+extension SFSymbols {
     // Document / Arrow / Text Pages
     public static let squareAndArrowUpTrianglebadgeExclamationmarkFill = "square.and.arrow.up.trianglebadge.exclamationmark.fill"
     public static let squareAndArrowDownBadgeClock = "square.and.arrow.down.badge.clock"
@@ -2232,7 +2248,7 @@ extension SFSymbol {
 }
 
 @available(iOS 17.6, *)
-extension SFSymbol {
+extension SFSymbols {
     // Beats Earbuds
     public static let beatsSolobuds = "beats.solobuds"
     public static let beatsSolobudsRight = "beats.solobuds.right"
@@ -2246,7 +2262,7 @@ extension SFSymbol {
 }
 
 @available(iOS 17.4, *)
-extension SFSymbol {
+extension SFSymbols {
     // Apple Terminal
     public static let appleTerminalCircle = "apple.terminal.circle"
     public static let appleTerminalCircleFill = "apple.terminal.circle.fill"
@@ -2287,14 +2303,14 @@ extension SFSymbol {
 }
 
 @available(iOS 17.2, *)
-extension SFSymbol {
+extension SFSymbols {
     // Square & Arrow Up with Badge Clock
     public static let squareAndArrowUpBadgeClock = "square.and.arrow.up.badge.clock"
     public static let squareAndArrowUpBadgeClockFill = "square.and.arrow.up.badge.clock.fill"
 }
 
 @available(iOS 17.1, *)
-extension SFSymbol {
+extension SFSymbols {
     // Person Crop with Camera Badge
     public static let personCropSquareBadgeCamera = "person.crop.square.badge.camera"
     public static let personCropSquareBadgeCameraFill = "person.crop.square.badge.camera.fill"
@@ -2309,7 +2325,7 @@ extension SFSymbol {
 }
 
 @available(iOS 17.0, *)
-extension SFSymbol {
+extension SFSymbols {
     // Pencil & Drawing Tools
     public static let pencilAndScribble = "pencil.and.scribble"
     public static let pencilTipCropCircleFill = "pencil.tip.crop.circle.fill"
@@ -3381,7 +3397,7 @@ extension SFSymbol {
 }
 
 @available(iOS 16.4, *)
-extension SFSymbol {
+extension SFSymbols {
     // Beats Powerbeats
     public static let powerbeatsRight = "beats.powerbeats.right"
     public static let powerbeatsLeft = "beats.powerbeats.left"
@@ -3398,7 +3414,7 @@ extension SFSymbol {
 }
 
 @available(iOS 16.1, *)
-extension SFSymbol {
+extension SFSymbols {
     // Backpack symbols
     public static let backpackCircle = "backpack.circle"
     public static let backpackCircleFill = "backpack.circle.fill"
@@ -3787,7 +3803,7 @@ extension SFSymbol {
 }
 
 @available(iOS 16.0, *)
-extension SFSymbol {
+extension SFSymbols {
     // Tools and writing
     public static let rectanglePortraitAndArrowForward = "rectangle.portrait.and.arrow.forward"
     public static let rectanglePortraitAndArrowForwardFill = "rectangle.portrait.and.arrow.forward.fill"
@@ -4779,7 +4795,7 @@ extension SFSymbol {
 }
 
 @available(iOS 15.4, *)
-extension SFSymbol {
+extension SFSymbols {
     public static let personBadgeKey = "person.badge.key"
     public static let personBadgeKeyFill = "person.badge.key.fill"
     public static let cameraMacro = "camera.macro"
@@ -4789,7 +4805,7 @@ extension SFSymbol {
 }
 
 @available(iOS 15.2, *)
-extension SFSymbol {
+extension SFSymbols {
     public static let rectangleLeadingHalfFilled = "rectangle.leadinghalf.filled"
     public static let rectangleTrailingHalfFilled = "rectangle.trailinghalf.filled"
     public static let airpodsGen3 = "airpods.gen3"
@@ -4802,7 +4818,7 @@ extension SFSymbol {
 }
 
 @available(iOS 15.1, *)
-extension SFSymbol {
+extension SFSymbols {
     public static let boltRingClosed = "bolt.ring.closed"
     public static let platterFilledTopiPhone = "platter.filled.top.iphone"
     public static let platterFilledBottomiPhone = "platter.filled.bottom.iphone"
@@ -4819,7 +4835,7 @@ extension SFSymbol {
 }
 
 @available(iOS 15.0, *)
-extension SFSymbol {
+extension SFSymbols {
     // Squares etc
     public static let squareAndArrowUpCircle = "square.and.arrow.up.circle"
     public static let squareAndArrowUpCircleFill = "square.and.arrow.up.circle.fill"
@@ -5626,7 +5642,7 @@ extension SFSymbol {
 }
 
 @available(iOS 14.5, *)
-extension SFSymbol {
+extension SFSymbols {
     public static let characterBubble = "character.bubble"
     public static let characterBubbleFill = "character.bubble.fill"
     public static let appleWatchSideRight = "applewatch.side.right"
@@ -5635,7 +5651,7 @@ extension SFSymbol {
 }
 
 @available(iOS 14.2, *)
-extension SFSymbol {
+extension SFSymbols {
     // Books / Text
     public static let characterBookClosed = "character.book.closed"
     public static let characterBookClosedFill = "character.book.closed.fill"
@@ -5696,7 +5712,7 @@ extension SFSymbol {
 }
 
 @available(iOS 14.0, *)
-extension SFSymbol {
+extension SFSymbols {
     // Drawing / Editing
     public static let rectangleAndPencilAndEllipsis = "rectangle.and.pencil.and.ellipsis"
     public static let scribbleVariable = "scribble.variable"
@@ -6652,7 +6668,7 @@ extension SFSymbol {
 }
 
 @available(iOS 13.1, *)
-extension SFSymbol {
+extension SFSymbols {
     // School and Office
     public static let studentDesk = "studentdesk"
     public static let paperclipCircle = "paperclip.circle"
@@ -6683,7 +6699,7 @@ extension SFSymbol {
 }
 
 @available(iOS 13.0, *)
-extension SFSymbol {
+extension SFSymbols {
     // File and Clipboard Actions
     public static let squareAndArrowUp = "square.and.arrow.up"
     public static let squareAndArrowUpFill = "square.and.arrow.up.fill"

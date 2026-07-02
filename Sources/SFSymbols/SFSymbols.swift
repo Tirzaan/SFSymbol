@@ -25,7 +25,7 @@ public extension Image {
 /// ``'
 public struct SFSymbols {
     // Eraser Symbols
-    public static let eraserBadgeXmark ="eraser.badge.xmark"
+    public static let eraserBadgeXmark = "eraser.badge.xmark"
     public static let eraserBadgeXmarkFill = "eraser.badge.xmark.fill"
     public static let eraserTriangleBadgeExclamationmark = "eraser.trianglebadge.exclamationmark"
     public static let eraserTriangleBadgeExclamationmarkFill = "eraser.trianglebadge.exclamationmark.fill"
